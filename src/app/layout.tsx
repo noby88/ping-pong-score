@@ -1,7 +1,9 @@
-import AuthButton from '@/components/complex/authButton/AuthButton';
 import SessionProvider from '@/components/complex/sessionProvider/SessionProvider';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
+
+import Navbar from '@/components/complex/navbar/Navbar';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -23,9 +25,10 @@ const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
       </head>
       <body>
         <SessionProvider session={session}>
+          <Navbar />
           <main>
             {children}
-            <AuthButton />
+            <Analytics />
           </main>
         </SessionProvider>
       </body>

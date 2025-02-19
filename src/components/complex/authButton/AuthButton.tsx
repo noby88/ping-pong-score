@@ -7,9 +7,9 @@ const AuthButton = () => {
   const { status } = useSession();
 
   return status === 'authenticated' ? (
-    <Button onClick={() => signOut()}>log out</Button>
+    <Button onClick={() => signOut()}>LOG OUT</Button>
   ) : (
-    <Button onClick={() => signIn()}>log in</Button>
+    <Button onClick={() => signIn()}>LOG IN</Button>
   );
 };
 
