@@ -1,12 +1,17 @@
-'use client';
-
 import Title from '@/components/basic/title/Title';
-import { useSession } from 'next-auth/react';
+import NewSession from '@/components/complex/newSession/NewSession';
 
 const DashboardPage = () => {
-  const session = useSession();
-
-  return <Title>Welcome {session.data?.user?.name}</Title>;
+  return (
+    <>
+      <section>
+        <Title>Match sessions</Title>
+      </section>
+      <section>
+        <NewSession />
+      </section>
+    </>
+  );
 };
 
 export default DashboardPage;

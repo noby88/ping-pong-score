@@ -8,10 +8,17 @@ const Button = styled.button`
   color: var(--text-primary);
   border-radius: var(--border-radius-3);
   box-shadow: var(--box-shadow-1);
+  font-weight: var(--font-weight-semibold);
 
-  &:hover {
+  &:hover:not(:disabled) {
     box-shadow: var(--box-shadow-3);
-    filter: brightness(99%);
+    filter: brightness(98%);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--gray-400);
+    color: var(--gray-600);
   }
 `;
 

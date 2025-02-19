@@ -28,8 +28,9 @@ body {
 
 main {
   display: grid;
-  margin: 0.5rem;
   justify-content: flex-start;
+  margin: 0.5rem;
+  padding-block-start: 1rem;
 }
 
 @media only screen and (max-width: 600px) {

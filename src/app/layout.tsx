@@ -5,6 +5,7 @@ import { getServerSession } from 'next-auth';
 
 import Navbar from '@/components/complex/navbar/Navbar';
 import './globals.css';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Ping Pong Score',
@@ -14,26 +15,30 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
   const session = await getServerSession();
 
-  return (
-    <html lang='en'>
-      <head>
-        {/* <!-- Optional base styles (Reset + Remove common styles to start from scratch) --> */}
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/base.css' />
+  if (Boolean(session)) {
+    return (
+      <html lang='en'>
+        <head>
+          {/* <!-- Optional base styles (Reset + Remove common styles to start from scratch) --> */}
+          <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/base.css' />
 
-        {/* <!-- Add Dashvar CSS Variables --> */}
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/dashvar.css' />
-      </head>
-      <body>
-        <SessionProvider session={session}>
-          <Navbar />
-          <main>
-            {children}
-            <Analytics />
-          </main>
-        </SessionProvider>
-      </body>
-    </html>
-  );
+          {/* <!-- Add Dashvar CSS Variables --> */}
+          <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/dashvar.css' />
+        </head>
+        <body>
+          <SessionProvider session={session}>
+            <Navbar />
+            <main>
+              {children}
+              <Analytics />
+            </main>
+          </SessionProvider>
+        </body>
+      </html>
+    );
+  } else {
+    redirect('/api/auth/signin');
+  }
 };
 
 export default RootLayout;
