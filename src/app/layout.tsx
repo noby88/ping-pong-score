@@ -1,30 +1,36 @@
+import AuthButton from '@/components/complex/authButton/AuthButton';
+import SessionProvider from '@/components/complex/sessionProvider/SessionProvider';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { getServerSession } from 'next-auth';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'Ping Pong Score',
   description: 'Keep track of the score while playing',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
+  const session = await getServerSession();
+
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <head>
+        {/* <!-- Optional base styles (Reset + Remove common styles to start from scratch) --> */}
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/base.css' />
+
+        {/* <!-- Add Dashvar CSS Variables --> */}
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/dashvar.css' />
+      </head>
+      <body>
+        <SessionProvider session={session}>
+          <main>
+            {children}
+            <AuthButton />
+          </main>
+        </SessionProvider>
+      </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
