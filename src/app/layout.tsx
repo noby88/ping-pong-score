@@ -21,9 +21,9 @@ const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
         <head>
           {/* <!-- Optional base styles (Reset + Remove common styles to start from scratch) --> */}
           <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/base.css' />
-
           {/* <!-- Add Dashvar CSS Variables --> */}
           <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/dashvars/dashvar/dist/dashvar.css' />
+          <link rel='icon' type='image/png' href='/icon/table-tennis.png' sizes='any' />
         </head>
         <body>
           <SessionProvider session={session}>
