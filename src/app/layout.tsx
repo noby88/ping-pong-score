@@ -6,6 +6,7 @@ import { getServerSession } from 'next-auth';
 import Navbar from '@/components/complex/navbar/Navbar';
 import './globals.css';
 import { redirect } from 'next/navigation';
+import BackgroundImage from '@/components/basic/backgroundImage/BackgroundImage';
 
 export const metadata: Metadata = {
   title: 'Ping Pong Score',
@@ -28,6 +29,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
         <body>
           <SessionProvider session={session}>
             <Navbar />
+            <BackgroundImage />
             <main>
               {children}
               <Analytics />

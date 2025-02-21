@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 0.5rem;
-  background-color: var(--yellow-100);
+  background-color: var(--yellow-200);
   display: flex;
   justify-content: space-between;
   color: var(--gray-900);
