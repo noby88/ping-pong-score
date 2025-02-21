@@ -3,6 +3,7 @@
   --foreground: var(--gray-900);
   --color-primary: var(--yellow-300);
   --text-primary: var(--gray-900);
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +31,7 @@ main {
   display: grid;
   justify-content: center;
   margin: 0.5rem;
+  margin-block-start: 4rem;
   padding-block-start: 1rem;
 }
 
@@ -39,8 +41,8 @@ main {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   html {
-    color-scheme: dark;
+    color-scheme: white;
   }
 }

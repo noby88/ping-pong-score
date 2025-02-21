@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const BackgroundImage = styled.div`
   background-image: url('/icon/table-tennis.png');
   background-repeat: no-repeat;
-  background-position: center 2rem;
+  background-position: center 5rem;
   background-blend-mode: difference;
   height: 100dvh;
   width: 100dvw;

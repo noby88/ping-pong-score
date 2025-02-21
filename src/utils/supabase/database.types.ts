@@ -1,5 +1,15 @@
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
+export type Session = {
+  created_at: string;
+  id: number;
+  identifier: string | null;
+  name: string | null;
+  owner: string | null;
+  player1: string | null;
+  player2: string | null;
+};
+
 export type Database = {
   graphql_public: {
     Tables: {
@@ -29,33 +39,9 @@ export type Database = {
   public: {
     Tables: {
       sessions: {
-        Row: {
-          created_at: string;
-          id: number;
-          identifier: string | null;
-          name: string | null;
-          owner: string | null;
-          player1: string | null;
-          player2: string | null;
-        };
-        Insert: {
-          created_at?: string;
-          id?: number;
-          identifier?: string | null;
-          name?: string | null;
-          owner?: string | null;
-          player1?: string | null;
-          player2?: string | null;
-        };
-        Update: {
-          created_at?: string;
-          id?: number;
-          identifier?: string | null;
-          name?: string | null;
-          owner?: string | null;
-          player1?: string | null;
-          player2?: string | null;
-        };
+        Row: Session;
+        Insert: Partial<Session>;
+        Update: Partial<Session>;
         Relationships: [];
       };
     };
