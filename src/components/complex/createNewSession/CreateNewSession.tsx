@@ -6,7 +6,7 @@ import Label from '@/components/basic/label/Label';
 import { createClient } from '@/utils/supabase/client';
 import { useSession } from 'next-auth/react';
 import { useState, useTransition } from 'react';
-import { Container } from './styled';
+import { Container, FullRow } from './styled';
 import { canSubmit } from './util';
 import { Spinner } from '@/components/basic/spinner/Spinner';
 import { useRouter } from 'next/navigation';
@@ -60,9 +60,11 @@ const CreateNewSession = () => {
         value={players.player2}
         onChange={(event) => setPlayers((prev) => ({ ...prev, player2: event.target.value }))}
       />
-      <Button onClick={handleStartSession} disabled={!canStart || isCreating}>
-        {isCreating ? <Spinner /> : 'Start session'}
-      </Button>
+      <FullRow>
+        <Button onClick={handleStartSession} disabled={!canStart || isCreating}>
+          {isCreating ? <Spinner /> : 'Start session'}
+        </Button>
+      </FullRow>
     </Container>
   );
 };

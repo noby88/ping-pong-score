@@ -28,7 +28,7 @@ body {
 
 main {
   display: grid;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 0.5rem;
   padding-block-start: 1rem;
 }
