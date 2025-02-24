@@ -1,3 +1,4 @@
+import NewGameButton from '@/components/basic/newGameButton/NewGameButton';
 import SessionTitle from '@/components/basic/sessionTitle/SessionTitle';
 import Title from '@/components/basic/title/Title';
 import GameList from '@/components/complex/gameList/GameList';
@@ -15,6 +16,7 @@ const SessionPage = async ({ params }: { params: { sessionIdentifier: string } }
 
   return (
     <>
+      <NewGameButton />
       <SessionTitle session={session.data} />
       <GameList sessionId={session.data.id} />
     </>

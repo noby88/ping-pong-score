@@ -20,7 +20,7 @@ const GameList: React.FC<IProps> = ({ sessionId }) => {
     supabase
       .from('games')
       .select()
-      .order('created_at')
+      .order('created_at', { ascending: false })
       .eq('session_id', sessionId)
       .then(({ data, error }) => !error && setGames(data ?? []));
 

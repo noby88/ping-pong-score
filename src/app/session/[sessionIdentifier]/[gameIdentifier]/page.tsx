@@ -1,7 +1,10 @@
+import BackButton from '@/components/basic/backLink/BackLink';
+import NewGameButton from '@/components/basic/newGameButton/NewGameButton';
 import SessionTitle from '@/components/basic/sessionTitle/SessionTitle';
 import Title from '@/components/basic/title/Title';
 import GamePlaying from '@/components/complex/gamePlaying/GamePlaying';
 import { createClient } from '@/utils/supabase/server';
+import Link from 'next/link';
 
 const GamePage = async ({ params }: { params: { sessionIdentifier: string; gameIdentifier: string } }) => {
   const { sessionIdentifier, gameIdentifier } = await params;
@@ -15,6 +18,10 @@ const GamePage = async ({ params }: { params: { sessionIdentifier: string; gameI
   }
   return (
     <>
+      <NewGameButton />
+      <Link href={'..'}>
+        <BackButton>{'<'}</BackButton>
+      </Link>
       <SessionTitle session={session.data} hideDate={true} />
       <GamePlaying gameIdentifier={gameIdentifier} />
     </>
