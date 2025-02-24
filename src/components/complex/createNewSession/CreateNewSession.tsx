@@ -14,6 +14,8 @@ import { useRouter } from 'next/navigation';
 const PLACEHOLDER = new Date().toLocaleString();
 const INITIAL_PLAYERS = { player1: '', player2: '' };
 
+const supabase = createClient();
+
 const CreateNewSession = () => {
   const [isCreating, startCreating] = useTransition();
   const router = useRouter();
@@ -21,8 +23,6 @@ const CreateNewSession = () => {
   const [name, setName] = useState('');
 
   const { data: auth } = useSession();
-
-  const supabase = createClient();
 
   const canStart = canSubmit(players);
 

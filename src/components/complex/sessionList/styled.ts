@@ -5,6 +5,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: grid;
   gap: 1rem;
+  margin-block-end: 5rem;
+`;
+
+export const SpinnerPositioner = styled.div`
+  justify-self: center;
 `;
 
 export const ItemCard = styled.div`

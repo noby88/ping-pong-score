@@ -1,5 +1,14 @@
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
+export type Game = {
+  created_at: string;
+  id: number;
+  identifier: string;
+  player1_point: number;
+  player2_point: number;
+  session_id: number | null;
+};
+
 export type Session = {
   created_at: string;
   id: number;
@@ -38,6 +47,20 @@ export type Database = {
   };
   public: {
     Tables: {
+      games: {
+        Row: Game;
+        Insert: Partial<Game>;
+        Update: Partial<Game>;
+        Relationships: [
+          {
+            foreignKeyName: 'games_session_id_fkey';
+            columns: ['session_id'];
+            isOneToOne: false;
+            referencedRelation: 'sessions';
+            referencedColumns: ['id'];
+          }
+        ];
+      };
       sessions: {
         Row: Session;
         Insert: Partial<Session>;
@@ -49,7 +72,20 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      add_point_1: {
+        Args: {
+          game_identifier: string;
+          point: number;
+        };
+        Returns: undefined;
+      };
+      add_point_2: {
+        Args: {
+          game_identifier: string;
+          point: number;
+        };
+        Returns: undefined;
+      };
     };
     Enums: {
       [_ in never]: never;
