@@ -1,12 +1,12 @@
 'use client';
 
-import styled from 'styled-components';
-import Button from '../button/Button';
+import { ArrowLeft } from 'lucide-react';
+import { FloatingButton } from './styles';
 
-const BackButton = styled(Button)`
-  position: fixed;
-  border-radius: 50%;
-  font-weight: bold;
-`;
+const BackButton = () => (
+  <FloatingButton>
+    <ArrowLeft />
+  </FloatingButton>
+);
 
 export default BackButton;

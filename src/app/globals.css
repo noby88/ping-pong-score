@@ -1,7 +1,7 @@
 :root {
   --background: var(--gray-100);
   --foreground: var(--gray-900);
-  --color-primary: var(--yellow-500);
+  --color-primary: var(--yellow-300);
   --text-primary: var(--gray-900);
   color-scheme: dark;
 }

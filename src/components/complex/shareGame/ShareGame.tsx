@@ -1,5 +1,6 @@
 'use client';
 
+import { Link } from 'lucide-react';
 import { ShareButton } from './styled';
 
 const ShareGame = () => {
@@ -15,7 +16,11 @@ const ShareGame = () => {
     }
   };
 
-  return <ShareButton onClick={handleShare}>🔗</ShareButton>;
+  return (
+    <ShareButton onClick={handleShare}>
+      <Link />
+    </ShareButton>
+  );
 };
 
 export default ShareGame;

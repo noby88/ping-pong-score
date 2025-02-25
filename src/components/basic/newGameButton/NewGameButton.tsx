@@ -1,8 +1,9 @@
 'use client';
 
 import { createClient } from '@/utils/supabase/client';
-import { FloatingButton } from './styled';
+import { CircleFadingPlus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { FloatingButton } from './styled';
 
 interface IProps {
   sessionId: number;
@@ -26,7 +27,11 @@ const NewGameButton: React.FC<IProps> = ({ sessionId, sibling }) => {
     router.push(`${sibling ? '..' : '.'}/${game.data![0].identifier}`);
   };
 
-  return <FloatingButton onClick={handleCreate}>+</FloatingButton>;
+  return (
+    <FloatingButton onClick={handleCreate}>
+      <CircleFadingPlus />
+    </FloatingButton>
+  );
 };
 
 export default NewGameButton;

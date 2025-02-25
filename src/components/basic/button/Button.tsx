@@ -9,6 +9,8 @@ const Button = styled.button`
   border-radius: var(--border-radius-3);
   box-shadow: var(--box-shadow-1);
   font-weight: var(--font-weight-semibold);
+  display: grid;
+  place-content: center;
 
   &:hover:not(:disabled) {
     box-shadow: var(--box-shadow-3);

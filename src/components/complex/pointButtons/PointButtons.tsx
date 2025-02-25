@@ -3,6 +3,7 @@
 import type { Game } from '@/utils/supabase/database.types';
 import { Container, DecreaseButton, IncreaseButton } from './styled';
 import { createClient } from '@/utils/supabase/client';
+import { Minus, Plus } from 'lucide-react';
 
 interface IProps {
   gameIdentifier: string;
@@ -23,8 +24,12 @@ const PointButtons: React.FC<IProps> = ({ gameIdentifier, player }) => {
 
   return (
     <Container>
-      <DecreaseButton onClick={() => handleAddPoint(-1)}>-</DecreaseButton>
-      <IncreaseButton onClick={() => handleAddPoint(1)}>+</IncreaseButton>
+      <DecreaseButton onClick={() => handleAddPoint(-1)}>
+        <Minus />
+      </DecreaseButton>
+      <IncreaseButton onClick={() => handleAddPoint(1)}>
+        <Plus />
+      </IncreaseButton>
     </Container>
   );
 };
