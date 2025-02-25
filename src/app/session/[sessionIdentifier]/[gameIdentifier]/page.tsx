@@ -18,7 +18,7 @@ const GamePage = async ({ params }: { params: Promise<{ sessionIdentifier: strin
   }
   return (
     <>
-      <NewGameButton />
+      <NewGameButton sessionId={session.data.id} sibling={true} />
       <Link href={'..'}>
         <BackButton>{'<'}</BackButton>
       </Link>

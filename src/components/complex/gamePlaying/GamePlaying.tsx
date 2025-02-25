@@ -3,7 +3,7 @@
 import { createClient } from '@/utils/supabase/client';
 import type { Game } from '@/utils/supabase/database.types';
 import { useEffect, useState } from 'react';
-import { Container, Hr, Score } from './styles';
+import { Container, Hr, Score, StartTime } from './styles';
 import PointButtons from '../pointButtons/PointButtons';
 
 interface IProps {
@@ -43,6 +43,7 @@ const GamePlaying: React.FC<IProps> = ({ gameIdentifier }) => {
 
   return (
     <Container>
+      <StartTime>{new Date(game!.created_at).toLocaleString('zh')}</StartTime>
       <PointButtons gameIdentifier={gameIdentifier} player='player1_point' />
       <Score>{game?.player1_point}</Score>
       <Hr />

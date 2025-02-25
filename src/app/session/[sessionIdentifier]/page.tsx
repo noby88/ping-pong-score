@@ -16,7 +16,7 @@ const SessionPage = async ({ params }: { params: Promise<{ sessionIdentifier: st
 
   return (
     <>
-      <NewGameButton />
+      <NewGameButton sessionId={session.data.id} />
       <SessionTitle session={session.data} />
       <GameList sessionId={session.data.id} />
     </>
