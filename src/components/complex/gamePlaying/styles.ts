@@ -15,10 +15,6 @@ export const Container = styled.div`
 
 export const StartTime = styled.span``;
 
-export const Hr = styled.hr`
-  width: 100%;
-`;
-
 export const Score = styled.span`
   font-size: 7rem;
   line-height: 7rem;

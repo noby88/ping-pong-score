@@ -8,4 +8,5 @@ export const FloatingButton = styled(Button)`
   right: 1rem;
   font-weight: bold;
   border-radius: 50%;
+  z-index: 1500;
 `;
