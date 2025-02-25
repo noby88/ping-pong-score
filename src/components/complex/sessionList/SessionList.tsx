@@ -22,6 +22,7 @@ const SessionList = () => {
       const { data: gameSessions } = await supabase
         .from('sessions')
         .select()
+        .order('created_at', { ascending: false })
         .eq('owner', auth?.user?.email ?? '');
       setSessions(gameSessions!);
       setIsLoading(false);

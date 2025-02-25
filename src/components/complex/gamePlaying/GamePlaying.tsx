@@ -19,7 +19,6 @@ const GamePlaying: React.FC<IProps> = ({ gameIdentifier }) => {
     supabase
       .from('games')
       .select()
-      .order('created_at')
       .eq('identifier', gameIdentifier)
       .single()
       .then(({ data, error }) => !error && setGame(data));

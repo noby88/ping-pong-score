@@ -31,7 +31,7 @@ const GameList: React.FC<IProps> = ({ sessionId }) => {
         { event: '*', schema: 'public', table: 'games', filter: `session_id=eq.${sessionId}` },
         (payload) => {
           if (payload.eventType === 'INSERT') {
-            setGames((prev) => [...prev, payload.new as Game]);
+            setGames((prev) => [payload.new as Game, ...prev]);
           }
           if (payload.eventType === 'UPDATE') {
             setGames((prev) =>
