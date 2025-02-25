@@ -4,7 +4,7 @@ import Title from '@/components/basic/title/Title';
 import GameList from '@/components/complex/gameList/GameList';
 import { createClient } from '@/utils/supabase/server';
 
-const SessionPage = async ({ params }: { params: { sessionIdentifier: string } }) => {
+const SessionPage = async ({ params }: { params: Promise<{ sessionIdentifier: string }> }) => {
   const { sessionIdentifier } = await params;
   const supabase = await createClient();
 

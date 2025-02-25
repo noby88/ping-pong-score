@@ -6,7 +6,7 @@ import GamePlaying from '@/components/complex/gamePlaying/GamePlaying';
 import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
 
-const GamePage = async ({ params }: { params: { sessionIdentifier: string; gameIdentifier: string } }) => {
+const GamePage = async ({ params }: { params: Promise<{ sessionIdentifier: string; gameIdentifier: string }> }) => {
   const { sessionIdentifier, gameIdentifier } = await params;
 
   const supabase = await createClient();
