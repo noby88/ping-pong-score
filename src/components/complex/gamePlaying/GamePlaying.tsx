@@ -2,7 +2,7 @@
 
 import { createClient } from '@/utils/supabase/client';
 import type { Game } from '@/utils/supabase/database.types';
-import { useEffect, useState } from 'react';
+import { ComponentProps, useEffect, useState } from 'react';
 import PointButtons from '../pointButtons/PointButtons';
 import ShareGame from '../shareGame/ShareGame';
 import { Container, Score, StartTime } from './styles';
@@ -42,6 +42,14 @@ const GamePlaying: React.FC<IProps> = ({ gameIdentifier }) => {
     };
   }, [gameIdentifier]);
 
+  const handleAmend: ComponentProps<typeof PointButtons>['liveAmend'] = (player, point) => {
+    if (game) {
+      const newGame = { ...game };
+      newGame[player] = (newGame[player] ?? 0) + point;
+      setGame(newGame);
+    }
+  };
+
   if (!game?.id) {
     return null;
   }
@@ -49,11 +57,11 @@ const GamePlaying: React.FC<IProps> = ({ gameIdentifier }) => {
   return (
     <Container>
       <StartTime>{new Date(game.created_at).toLocaleString('zh')}</StartTime>
-      <PointButtons gameIdentifier={gameIdentifier} player='player1_point' />
+      <PointButtons gameIdentifier={gameIdentifier} player='player1_point' liveAmend={handleAmend} />
       <Score>{game.player1_point}</Score>
       <ShareGame />
       <Score>{game.player2_point}</Score>
-      <PointButtons gameIdentifier={gameIdentifier} player='player2_point' />
+      <PointButtons gameIdentifier={gameIdentifier} player='player2_point' liveAmend={handleAmend} />
     </Container>
   );
 };
