@@ -10,8 +10,9 @@ export const Container = styled.div`
 `;
 
 const Button = styled.button`
-  height: calc((100dvh - 40rem) / 2);
+  height: calc((100vh - 40rem) / 2);
   width: 100%;
+  box-sizing: content-box;
   border-radius: var(--border-radius-2);
   font-size: 2.5rem;
   display: grid;
