@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 
-export const GameCard = styled.div`
+export const GameCard = styled.div<{ clicked?: boolean }>`
   display: grid;
   gap: 0.5rem;
   grid-template-areas: 'time time time' 'player1 . player2';
@@ -12,7 +12,7 @@ export const GameCard = styled.div`
   border-radius: var(--border-radius-2);
   background-color: var(--background);
   box-shadow: var(--box-shadow-3);
-  filter: brightness(1.2);
+  filter: brightness(${({ clicked }) => (clicked ? 0.8 : 1.2)});
 
   @media (prefers-color-scheme: dark) {
     border: solid 1px var(--foreground);

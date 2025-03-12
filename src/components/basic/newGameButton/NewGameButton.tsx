@@ -3,6 +3,8 @@
 import { createClient } from '@/utils/supabase/client';
 import { CircleFadingPlus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Spinner } from '../spinner/Spinner';
 import { FloatingButton } from './styled';
 
 interface IProps {
@@ -14,8 +16,10 @@ const supabase = createClient();
 
 const NewGameButton: React.FC<IProps> = ({ sessionId, sibling }) => {
   const router = useRouter();
+  const [clicked, setClicked] = useState(false);
 
   const handleCreate = async () => {
+    setClicked(true);
     const game = await supabase
       .from('games')
       .insert([{ session_id: sessionId }])
@@ -28,8 +32,8 @@ const NewGameButton: React.FC<IProps> = ({ sessionId, sibling }) => {
   };
 
   return (
-    <FloatingButton onClick={handleCreate}>
-      <CircleFadingPlus />
+    <FloatingButton disabled={clicked} onClick={handleCreate}>
+      {clicked ? <Spinner /> : <CircleFadingPlus />}
     </FloatingButton>
   );
 };

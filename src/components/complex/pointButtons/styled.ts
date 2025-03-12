@@ -17,6 +17,10 @@ const Button = styled.button`
   font-size: 2.5rem;
   display: grid;
   place-content: center;
+
+  &:disabled {
+    background-color: var(--gray-500);
+  }
 `;
 
 export const DecreaseButton = styled(Button)`

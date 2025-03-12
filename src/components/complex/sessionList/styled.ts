@@ -12,7 +12,7 @@ export const SpinnerPositioner = styled.div`
   justify-self: center;
 `;
 
-export const ItemCard = styled.div`
+export const ItemCard = styled.div<{ clicked?: boolean }>`
   display: grid;
   gap: 0.5rem;
   grid-template-areas: 'name . started' 'player1 vs player2';
@@ -22,6 +22,7 @@ export const ItemCard = styled.div`
   background-color: var(--background);
   box-shadow: var(--box-shadow-3);
   filter: brightness(1.2);
+  ${({ clicked }) => (clicked ? 'opacity: 0.5;' : '')}
 
   @media (prefers-color-scheme: dark) {
     border: solid 1px var(--foreground);
