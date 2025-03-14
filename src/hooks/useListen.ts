@@ -51,7 +51,7 @@ const useListen = (listenList: string[]) => {
     } else {
       alert("Can't use voice recognition...");
     }
-  }, []);
+  }, [listenList]);
 
   return [controls, hearing] as const;
 };
