@@ -1,6 +1,5 @@
 'use client';
 
-import Button from '@/components/basic/button/Button';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -19,12 +18,6 @@ export const StartTime = styled.span``;
 export const Score = styled.span`
   font-size: 7rem;
   line-height: 7rem;
-`;
-
-export const MicButton = styled(Button)`
-  border-radius: 50%;
-  height: 4rem;
-  width: 4rem;
 `;
 
 export const Middle = styled.div`
